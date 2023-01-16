@@ -30,7 +30,7 @@ with st.form("my_form",clear_on_submit=True):
             st.warning("비밀번호확인바람")
             st.stop()
 
-        cur.execute(f"INSERT INTO (uid,uname,upw,ubd,ugender)  VALUES ({uid},{uname},{upw},{ubd},{ugender})")
+        cur.execute(f"INSERT INTO (uid,uname,upw,ubd,ugender) VALUES ({uid},{uname},{upw},{ubd},{ugender})")
         con.commit()
 
 
