@@ -33,4 +33,5 @@ with st.form("my_form",clear_on_submit=True):
         st.success(f"{uid},  {uname},  {upw},  {ubd},  {ugender}")
 
 st.subheader("회원목록")
-df=pd.read_sql("",con)
+df=pd.read_sql('SELECT*FROM users',con)
+st.dataframe(df)
