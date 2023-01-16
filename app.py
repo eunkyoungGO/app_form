@@ -2,6 +2,10 @@ import streamlit as st
 import datetime
 import sqlite3
 import pandas as pd
+import os.path
+
+file_path=os.path.dirname(__file__)
+db_file=os.path.join(file_path,'users.db')
 
 #데이터베이스 연결
 con=sqlite3.connect('users.db')
@@ -26,7 +30,7 @@ with st.form("my_form",clear_on_submit=True):
             st.warning("비밀번호확인바람")
             st.stop()
 
-        cur.execute(f"INSERT INTO users (uid,uname,upw,ubd,ugender)  VALUES ({uid},{uname},{upw},{ubd},{ugender})")
+        cur.execute(f"INSERT INTO (uid,uname,upw,ubd,ugender)  VALUES ({uid},{uname},{upw},{ubd},{ugender})")
         con.commit()
 
 
