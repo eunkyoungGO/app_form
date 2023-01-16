@@ -10,6 +10,11 @@ with st.form("my_form",clear_on_submit=True):
     upw=st.text_input("비밀번호", type='password')
     upw_chk=st.text_input("비밀번호확인", type='password')
     ubd=st.date_input("생년월일", min_value=datetime.date(1930,1,1))
+    ugender=st.radio("성별", options=['남','여'],horizontal=True)
     submitted=st.form_submit_button("제출")
     if submitted:
+        if len(uid)<6:
+            st.warning("아이디는 6글자 이상")
+            st.stop()
+
         st.success("제출됨")
