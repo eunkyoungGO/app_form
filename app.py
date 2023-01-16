@@ -19,4 +19,4 @@ with st.form("my_form",clear_on_submit=True):
         if upw!=upw_chk:
             st.warning("비밀번호확인바람")
             st.stop()
-        st.success(f"{uid}{uname}{upw}{ubd}{ugender}")
+        st.success(f"{uid},  {uname},  {upw},  {ubd},  {ugender}")
