@@ -16,5 +16,7 @@ with st.form("my_form",clear_on_submit=True):
         if len(uid)<6:
             st.warning("아이디는 6글자 이상")
             st.stop()
-
-        st.success("제출됨")
+        if upw!=upw_chk:
+            st.warning("비밀번호확인바람")
+            st.stop()
+        st.success(f"{uid}{uname}{upw}{ubd}{ugender}")
