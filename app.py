@@ -88,7 +88,7 @@ if selected:
         row = selected[0]
         cur.execute(f"UPDATE users SET uname='{row['uname']}' WHERE no={row['no']}")
         con.commit()
-        st.success('성명을 수정하였습니다.')
+        st.experimental_rerun()
 
 
 
