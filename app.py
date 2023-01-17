@@ -115,7 +115,7 @@ elif menu == '로그인':
                 st.stop()
             pw_chk=row[3]
             if pw!=pw_chk:
-                st.warnin("비밀번호가 일치하지 않습니다.")
+                st.warning("비밀번호가 일치하지 않습니다.")
                 st.stop()
             st.session_state.login=True
             st.session_state.uid=id
@@ -125,7 +125,14 @@ elif menu == '로그인':
         res=cur.execute(f"SELECT*FROM users WHERE uid='{st.session_state.uid}'")
         row = res.fetchone()
 
-        st.table(res)
+        st.write(st.session_state.uid)
+        st.write(row)
+
+        logout_btn=st.button("로그아웃")
+        if logout_btn:
+            del st.session_state.login
+            del st.session_state.uid
+            st.experimental_rerun
 
 # df = pd.read_sql('SELECT * FROM users', con)
 # st.dataframe(df)
